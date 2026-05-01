@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <ProjectGuid>{0B5E6A75-CA5C-47A8-9E35-323BD362F342}</ProjectGuid>
-    <RootNamespace>SysMate</RootNamespace>
+    <RootNamespace>SystemStuff</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -156,12 +156,16 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="chart.h" />
     <ClInclude Include="dark_theme.h" />
+    <ClInclude Include="layout.h" />
+    <ClInclude Include="custom_controls.h" />
+    <ClInclude Include="helpers.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="SysMate.rc" />
+    <ResourceCompile Include="sys-stuff.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\SysMate.ico" />
+    <Image Include="res\sys-stuff.ico" />
+    <Image Include="res\sys-stuff-dark.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

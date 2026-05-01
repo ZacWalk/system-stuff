@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <cmath>
 #include <vector>
+#include <deque>
 #include <algorithm>
 
 // Anti-aliased chart renderer to an RGB buffer, drawn via SetDIBitsToDevice.
@@ -28,16 +29,18 @@ class Chart
 public:
 	void Resize(const int w, const int h)
 	{
+		if (w == m_w && h == m_h && !m_pixels.empty()) return;
 		m_w = w;
 		m_h = h;
 		// BMP rows are bottom-up, each row padded to 4 bytes
 		m_stride = ((w * 3 + 3) & ~3);
-		m_pixels.resize(m_stride * h);
+		m_pixels.assign(static_cast<size_t>(m_stride) * h, 0);
 	}
 
-	void SetData(const std::vector<float>& data, const float minVal = 0.f, const float maxVal = 100.f)
+	template <class Container>
+	void SetData(const Container& data, const float minVal = 0.f, const float maxVal = 100.f)
 	{
-		m_data = data;
+		m_data.assign(data.begin(), data.end());
 		m_minVal = minVal;
 		m_maxVal = maxVal;
 	}
@@ -291,21 +294,16 @@ private:
 	void DrawLine()
 	{
 		const int n = static_cast<int>(m_data.size());
-		for (int i = 0; i < n - 1; i++)
+		// Three passes (offsets 0, +0.5, -0.5) approximate a 2-pixel-thick line.
+		static constexpr float kOffsets[] = {0.f, 0.5f, -0.5f};
+		for (float off : kOffsets)
 		{
-			DrawAALine(DataToX(i), DataToY(m_data[i]),
-			           DataToX(i + 1), DataToY(m_data[i + 1]),
-			           m_style.lineColor);
-		}
-		// Draw thicker line by offsetting by 1 pixel
-		for (int i = 0; i < n - 1; i++)
-		{
-			DrawAALine(DataToX(i), DataToY(m_data[i]) + 0.5f,
-			           DataToX(i + 1), DataToY(m_data[i + 1]) + 0.5f,
-			           m_style.lineColor);
-			DrawAALine(DataToX(i), DataToY(m_data[i]) - 0.5f,
-			           DataToX(i + 1), DataToY(m_data[i + 1]) - 0.5f,
-			           m_style.lineColor);
+			for (int i = 0; i < n - 1; i++)
+			{
+				DrawAALine(DataToX(i), DataToY(m_data[i]) + off,
+				           DataToX(i + 1), DataToY(m_data[i + 1]) + off,
+				           m_style.lineColor);
+			}
 		}
 	}
 };

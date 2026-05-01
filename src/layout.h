@@ -58,6 +58,8 @@ namespace Layout
 	constexpr int AboutLabelWidth = 170;
 	constexpr int AboutValueOffset = 180;
 	constexpr int AboutRightMargin = 28;
+	constexpr int AboutIconSize = 64;
+	constexpr int AboutIconGap = 16;
 }
 
 // ============================================================

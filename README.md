@@ -1,8 +1,10 @@
-# SysMate
+# System Stuff
 
-A lightweight Windows system information utility built with the Win32 SDK.
+A lightweight Windows system information utility built with the Win32 SDK. Uses 10% of the memory task manager uses.
 
-![SysMate screenshot](screenshot.png)
+Way back around 2000, the company I worked for still supported Windows 95 and 98 for the desktop application we sold. I typically volunteered to test on those platforms and had written my own task manager like program. Every 5 years or so I get it building and do a few updates. Originally called sys-mate now called more generically sys-stuff. 
+
+![System Stuff screenshot](screenshot.png)
 
 ## Features
 
@@ -33,14 +35,10 @@ A lightweight Windows system information utility built with the Win32 SDK.
 Requires Visual Studio 2022 17.14+ (v145 toolset) or Visual Studio 2026.
 
 ```
-msbuild src\SysMate.vcxproj /p:Configuration=Release /p:Platform=x64
+msbuild src\sys-stuff.vcxproj /p:Configuration=Release /p:Platform=x64
 ```
 
-Or open `SysMate.sln` in Visual Studio.
-
-## History
-
-Originally written circa 2001–2002 as an MFC/COM application for Visual C++ 6.0. Modernized to pure Win32 SDK, Unicode, and x64.
+Or open `sys-stuff.sln` in Visual Studio.
 
 ## License
 

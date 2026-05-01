@@ -1,7 +1,8 @@
 #include "resource.h"
 #include <winres.h>
 
-IDI_SYSMATE ICON "res\\SysMate.ico"
+IDI_LIGHT      ICON "res\\sys-stuff.ico"
+IDI_DARK ICON "res\\sys-stuff-dark.ico"
 
 IDR_ACCEL ACCELERATORS
 BEGIN
@@ -25,12 +26,12 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "FileDescription", "SysMate - System Information Utility"
+            VALUE "FileDescription", "System Stuff - System Information Utility"
             VALUE "FileVersion", "2.0.0.0"
-            VALUE "InternalName", "SysMate"
+            VALUE "InternalName", "System Stuff"
             VALUE "LegalCopyright", "Copyright (C) 2002 Zac Walker"
-            VALUE "OriginalFilename", "SysMate.exe"
-            VALUE "ProductName", "SysMate"
+            VALUE "OriginalFilename", "sys-stuff.exe"
+            VALUE "ProductName", "System Stuff"
             VALUE "ProductVersion", "2.0.0.0"
         END
     END

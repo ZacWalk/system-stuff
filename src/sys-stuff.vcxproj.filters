@@ -29,14 +29,26 @@
     <ClInclude Include="dark_theme.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="layout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="custom_controls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="SysMate.rc">
+    <ResourceCompile Include="sys-stuff.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\SysMate.ico">
+    <Image Include="res\sys-stuff.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sys-stuff-dark.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
